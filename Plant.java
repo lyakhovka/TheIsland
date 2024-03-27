@@ -1,4 +1,10 @@
-public class Plant implements Alive{
+public class Plant extends Alive{
+    public static final double MIN_PLANT_WEIGHT = 0.1; //amount of food for the smallest herbivore
+    public static final double MAX_PLANT_WEIGHT = 60; //amount of food for the biggest herbivore
+    public double weight;
 
-    public int weight = 10;
+    public Plant(){
+        this.weight = Math.random() * (MAX_PLANT_WEIGHT - MIN_PLANT_WEIGHT) + MIN_PLANT_WEIGHT;
+    }
+
 }

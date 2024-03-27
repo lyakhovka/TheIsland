@@ -1,2 +1,9 @@
-public interface Alive {
+public abstract class Alive {
+ boolean isAlive;
+ double hp;
+
+ public void die(){
+     isAlive = false;
+ }
 }
+

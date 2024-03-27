@@ -1,2 +1,4 @@
-public abstract class Omnivore extends Animal{
+public abstract class Omnivore extends Animal {
+
 }
+
