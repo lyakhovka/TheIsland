@@ -5,12 +5,15 @@ import java.util.Map;
 import java.util.Random;
 
 public abstract class Animal extends Alive{
-
     public int weight;
-    public int maxAmount;
     public int maxSpeed;
-    public int maxFoodAmount;
-    public ArrayList<Alive> possiblePreys;
+    public double maxFoodAmount;
+    public Map<String, Integer> possiblePreys;
+
+    public Animal(){
+        this.hp = 1;
+        this.isAlive = true;
+    }
     public Map<String, Integer> setDestination(){
         Map<String, Integer> destinationCell = new HashMap<>();
         int islandWidth = 100; //temporary hardcoded
@@ -39,7 +42,7 @@ public abstract class Animal extends Alive{
             //Prey object is deleted.
 
             //TODO add probability of eating depending on the exact prey.
-            if (!this.possiblePreys.contains(possiblePrey)) {
+            if (!this.possiblePreys.keySet().contains(possiblePrey)) {
                 return false;
             } else {
                 if (possiblePrey instanceof Animal) {
