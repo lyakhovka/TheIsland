@@ -5,5 +5,7 @@ public abstract class Alive {
  public void die(){
      isAlive = false;
  }
+
+ abstract void paint();
 }
 
