@@ -1,12 +1,12 @@
 import java.util.Map;
 
 public abstract class Alive {
- boolean isAlive;
+ boolean isCreatureAlive;
  double hp;
  public Map<String, Integer> currentPosition;
 
  public void die(){
-     isAlive = false;
+     isCreatureAlive = false;
  }
 
  abstract void paint();

@@ -13,7 +13,7 @@ public abstract class Animal extends Alive implements Runnable{
 
     public Animal(){
         this.hp = 1;
-        this.isAlive = true;
+        this.isCreatureAlive = true;
         this.currentPosition = new HashMap<>();
     }
     public Map<String, Integer> setDestination(){
@@ -92,7 +92,7 @@ public abstract class Animal extends Alive implements Runnable{
     }
 
     public void die(){
-        if (this.hp < 0.1) this.isAlive = false;
+        if (this.hp < 0.1) this.isCreatureAlive = false;
     }
 
     public void run(){}
