@@ -1,10 +1,13 @@
 import java.util.HashMap;
+
 public class Bear extends Carnivore{
   public static final String ICON = "\uD83D\uDC3B";
   public static final String NAME = "Bear";
 
-  public Bear(){
+  public Bear(Integer x, Integer y){
     super();
+    this.currentPosition.put("X", x);
+    this.currentPosition.put("Y", y);
     this.weight = 500;
     this.maxFoodAmount = 80;
     this.maxSpeed = 2;
@@ -19,6 +22,8 @@ public class Bear extends Carnivore{
 //    possiblePreys.put("Hog", 50);
 //    possiblePreys.put("Buffalo", 20);
 //    possiblePreys.put("Duck", 10);
+
+
   }
 
   public void paint(){

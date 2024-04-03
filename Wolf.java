@@ -4,8 +4,10 @@ public class Wolf extends Carnivore{
     public static final String ICON = "\uD83D\uDC3A";
     public static final String NAME = "Wolf";
 
-    public Wolf(){
+    public Wolf(Integer x, Integer y){
         super();
+        this.currentPosition.put("X", x);
+        this.currentPosition.put("Y", y);
         this.weight = 50;
         this.maxFoodAmount = 8;
         this.maxSpeed = 3;
