@@ -4,20 +4,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public abstract class Animal extends Alive{
+public abstract class Animal extends Alive implements Runnable{
     public int weight;
     public int maxSpeed;
     public double maxFoodAmount;
     public Map<String, Integer> possiblePreys;
 
+
     public Animal(){
         this.hp = 1;
         this.isAlive = true;
+        this.currentPosition = new HashMap<>();
     }
     public Map<String, Integer> setDestination(){
         Map<String, Integer> destinationCell = new HashMap<>();
-        int islandWidth = 100; //temporary hardcoded
-        int islandHeight = 20; //temporary hardcoded
+        int islandWidth = 10; //temporary hardcoded
+        int islandHeight = 5; //temporary hardcoded
         Random random = new Random();
 
         int x = random.nextInt(maxSpeed);
@@ -29,6 +31,12 @@ public abstract class Animal extends Alive{
         destinationCell.put("Y", y);
 
         return destinationCell;
+    }
+
+    public void move(Map<String, Integer> destinationCoordinates){
+        this.currentPosition.put("X", destinationCoordinates.get("X"));
+        this.currentPosition.put("Y", destinationCoordinates.get("Y"));
+
     }
     public boolean eat(Alive possiblePrey){
             Animal prey;
@@ -86,5 +94,7 @@ public abstract class Animal extends Alive{
     public void die(){
         if (this.hp < 0.1) this.isAlive = false;
     }
+
+    public void run(){}
 
 }
