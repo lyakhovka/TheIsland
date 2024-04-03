@@ -1,5 +1,8 @@
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Cell {
 
@@ -14,14 +17,14 @@ public class Cell {
 
     private Map<String, Integer> getMaxAliveAmountInCell() {
         Map<String, Integer> maxAmount = new HashMap<>();
-        maxAmount.put("Wolf", 30);
+        maxAmount.put("Wolf", 3);
 //        maxAmount.put("Boa", 30);
 //        maxAmount.put("Fox", 30);
         maxAmount.put("Bear", 5);
 //        maxAmount.put("Eagle", 20);
 //        maxAmount.put("Horse", 20);
 //        maxAmount.put("Deer", 20);
-        maxAmount.put("Rabbit", 150);
+        maxAmount.put("Rabbit", 7);
 //        maxAmount.put("Mouse", 500);
 //        maxAmount.put("Goat", 140);
 //        maxAmount.put("Sheep", 140);
@@ -29,7 +32,7 @@ public class Cell {
 //        maxAmount.put("Buffalo", 10);
 //        maxAmount.put("Duck", 200);
 //        maxAmount.put("Caterpillar", 1000);
-        maxAmount.put("Plant", 200);
+        maxAmount.put("Plant", 10);
 
         return maxAmount;
     }
@@ -61,10 +64,36 @@ public class Cell {
     }
 
     public void lifeRound(){
-        for (Animal animal: animalsInCell){
-            Thread animalLife = new Thread(animal);
-            animalLife.start();
+//       List<Thread> threads = new ArrayList<>();
+//        for (Animal animal: animalsInCell){
+//            animal.paint();
+//            Thread animalLife = new Thread(animal);
+//            System.out.println(animalLife.getName());
+//            threads.add(animalLife);
+//            animalLife.start();
+//        }
+//
+//        for (Thread thread: threads){
+//            try{
+//                thread.join();
+//            }catch (InterruptedException e){
+//                e.printStackTrace();
+//            }
+//        }
+
+        ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
+        for (Animal animal : animalsInCell) {
+            executor.submit(animal);
         }
+
+        executor.shutdown();
+        try {
+            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
     public void reportStatus() {
 
