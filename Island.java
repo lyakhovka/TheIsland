@@ -27,6 +27,16 @@ public class Island {
     //the island size is temporary hardcoded
 
         Island theIsland = new Island(2, 2);
+        for(int i=0; i< theIsland.islandWidth; i++){
+
+            for(int j=0; j< theIsland.islandHeight; j++){
+                cells[i][j].lifeRound();
+                System.out.println();
+                System.out.println();
+                System.out.println("CELL["+i+"]["+j+"]");
+                cells[i][j].reportStatus();
+            }
+        }
 
     }
 }
