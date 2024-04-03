@@ -1,5 +1,5 @@
 public class Island {
-    public Cell[][] cells;
+    public static Cell[][] cells;
     private int islandWidth;
     private int islandHeight;
 
@@ -10,13 +10,13 @@ public class Island {
         cells = new Cell[islandWidth][islandHeight];
         for (int i = 0; i < islandWidth; i++) {
             for (int j = 0; j < islandHeight; j++) {
-                cells[i][j] = new Cell();
+                cells[i][j] = new Cell(i,j);
             }
         }
         for (int i = 0; i < islandWidth; i++) {
             for (int j = 0; j < islandHeight; j++) {
-                System.out.println("");
-                System.out.println("");
+                System.out.println();
+                System.out.println();
                 System.out.println("CELL["+i+"]["+j+"]");
                 cells[i][j].reportStatus();
             }
@@ -24,6 +24,9 @@ public class Island {
         }
     }
     public static void main(String[] args){
-        new Island(2, 2);
+    //the island size is temporary hardcoded
+
+        Island theIsland = new Island(2, 2);
+
     }
 }
