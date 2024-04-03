@@ -5,6 +5,8 @@ public class Cell {
 
     public List<Animal> animalsInCell = new ArrayList<>();
     public List<Plant> plantsInCell = new ArrayList<>();
+    public int x;
+    public int y;
 
  //   private final int SPECIES_TOTAL_AMOUNT = 16;
 
@@ -32,13 +34,16 @@ public class Cell {
         return maxAmount;
     }
 
-    public Cell() {
+    public  Cell(int x, int y) {
+        this.x = x;
+        this.y = y;
+
         for (String aliveName : maxAliveAmountInCell.keySet()) {
             Random random = new Random();
             int aliveAmount = random.nextInt(maxAliveAmountInCell.get(aliveName));
             for (int i = 0; i < aliveAmount; i++) {
                 try {
-                    Object newAlive = Class.forName(aliveName).getDeclaredConstructor().newInstance();
+                    Object newAlive = Class.forName(aliveName).getDeclaredConstructor(Integer.class, Integer.class).newInstance(x, y);
                     if (newAlive instanceof Animal) {
                         animalsInCell.add((Animal) newAlive);
                     } else if (newAlive instanceof Plant) {
@@ -48,12 +53,19 @@ public class Cell {
                 } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
                          NoSuchMethodException | ClassNotFoundException e) {
                     System.out.println(e.getMessage());
+                    System.out.println(e.getCause());
                 }
             }
 
         }
     }
 
+    public void lifeRound(){
+        for (Animal animal: animalsInCell){
+            Thread animalLife = new Thread(animal);
+            animalLife.start();
+        }
+    }
     public void reportStatus() {
 
         System.out.println("ANIMALS_TOTAL_AMOUNT: " + animalsInCell.size());
