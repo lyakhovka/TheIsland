@@ -1,7 +1,7 @@
 public abstract class Omnivore extends Animal {
     @Override
     public void run() {
-        while(isCreatureAlive){
+        while(this.hp>0){
             int x = currentPosition.get("X");
             int y = currentPosition.get("Y");
             for (Plant plant : Island.cells[x][y].plantsInCell) {
