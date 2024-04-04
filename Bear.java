@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Bear extends Carnivore{
   public static final String ICON = "\uD83D\uDC3B";
   public static final String NAME = "Bear";
-
+  public String getName(){return NAME;}
   public Bear(Integer x, Integer y){
     super();
     this.currentPosition.put("X", x);

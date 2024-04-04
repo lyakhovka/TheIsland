@@ -4,6 +4,8 @@ public class Wolf extends Carnivore{
     public static final String ICON = "\uD83D\uDC3A";
     public static final String NAME = "Wolf";
 
+    public String getName(){return NAME;}
+
     public Wolf(Integer x, Integer y){
         super();
         this.currentPosition.put("X", x);

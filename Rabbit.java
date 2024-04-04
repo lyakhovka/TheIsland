@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Rabbit extends Herbivore{
     public static final String ICON = "\uD83D\uDC07";
     public static final String NAME = "Rabbit";
-
+    public String getName(){return NAME;}
     public Rabbit(Integer x, Integer y){
         super();
         this.currentPosition.put("X", x);
