@@ -50,7 +50,7 @@ public abstract class Animal extends Alive implements Runnable{
             //Prey object is deleted.
 
             //TODO add probability of eating depending on the exact prey.
-            if (!this.possiblePreys.keySet().contains(possiblePrey)) {
+            if (!this.possiblePreys.keySet().contains(possiblePrey.getName())) {
                 return false;
             } else {
                 if (possiblePrey instanceof Animal) {
@@ -60,7 +60,7 @@ public abstract class Animal extends Alive implements Runnable{
                     } else {
                         this.hp += prey.weight / this.maxFoodAmount;
                     }
-                    ((Animal) possiblePrey).hp = 0;
+                    ((Animal) possiblePrey).die();
                 }
 
                 if (possiblePrey instanceof Plant) {
@@ -71,7 +71,7 @@ public abstract class Animal extends Alive implements Runnable{
                     } else {
                         this.hp += forage.weight / this.maxFoodAmount;
                     }
-                    ((Plant) possiblePrey).weight = 0;
+                    ((Plant) possiblePrey).die();
                 }
 
             }
