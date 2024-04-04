@@ -3,6 +3,8 @@
 out/
 *.class
 
+*.json
+
 # Log file
 *.log
 
