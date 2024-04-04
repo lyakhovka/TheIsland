@@ -96,7 +96,9 @@ public class Cell {
 
     }
     public void reportStatus() {
-
+        System.out.println();
+        System.out.println();
+        System.out.println("CELL["+x+"]["+y+"]");
         System.out.println("ANIMALS_TOTAL_AMOUNT: " + animalsInCell.size());
 
         for (int i = 0; i < animalsInCell.size(); i++) {

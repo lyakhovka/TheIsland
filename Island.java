@@ -31,9 +31,6 @@ public class Island {
 
             for(int j=0; j< theIsland.islandHeight; j++){
                 cells[i][j].lifeRound();
-                System.out.println();
-                System.out.println();
-                System.out.println("CELL["+i+"]["+j+"]");
                 cells[i][j].reportStatus();
             }
         }
