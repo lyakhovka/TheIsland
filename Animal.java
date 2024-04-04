@@ -1,8 +1,5 @@
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public abstract class Animal extends Alive implements Runnable{
    // public int weight;
@@ -81,16 +78,25 @@ public abstract class Animal extends Alive implements Runnable{
 
             return true;
         }
-    public void reproduce(Animal possiblePartner){
+    public void reproduce(List<Animal> possiblePartners){
         Class speciesToReproduce = this.getClass();
         Integer x = this.currentPosition.get("X");
         Integer y = this.currentPosition.get("Y");
-        if (possiblePartner.getClass().equals(speciesToReproduce)){
+        int partnersAmount = 0;
+        int offspringsAmount = 0;
 
+        for(Animal possiblePartner : possiblePartners){
+            if (possiblePartner.getClass().equals(speciesToReproduce)) partnersAmount++;
+        }
+
+        offspringsAmount = partnersAmount/2;
+
+        for (int i = 0; i<offspringsAmount; i++){
             try {
                 speciesToReproduce.getDeclaredConstructor(Integer.class, Integer.class).newInstance(x, y);
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException |NoSuchMethodException e) {
                 System.out.println(e.getMessage());
+                System.out.println(e.getCause());
             }
 
         }

@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.List;
 
 public abstract class Carnivore extends Animal {
     private static final Object lock = new Object();
@@ -18,13 +19,10 @@ public abstract class Carnivore extends Animal {
                             iterator.remove();  //а що буде, якщо видалиться this? може цього не треба робити? може потік зупиниться по умові while і garbage collector сам прибере this?
                         }
                     }
-
-                    Island.cells[x][y].reportStatus();
-//                    for (Animal animal : Island.cells[x][y].animalsInCell) {
-//                        reproduce(animal);
-//                    }
+                    reproduce(Island.cells[x][y].animalsInCell);
                     move(setDestination());
 
+//                    Island.cells[x][y].reportStatus();
                 }
        }
     }

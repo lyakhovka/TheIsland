@@ -18,14 +18,12 @@ public abstract class Herbivore extends Animal{
                         iterator.remove();
                     }
                 }
+                reproduce(Island.cells[x][y].animalsInCell);
+                move(setDestination());
+
+//                Island.cells[x][y].reportStatus();
 
             }
-            synchronized (Island.cells[x][y].animalsInCell){
-            for (Animal animal : Island.cells[x][y].animalsInCell) {
-                reproduce(animal);
-            }
-        }
-
         }
     }
 
