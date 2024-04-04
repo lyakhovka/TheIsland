@@ -80,10 +80,12 @@ public abstract class Animal extends Alive implements Runnable{
         }
     public void reproduce(Animal possiblePartner){
         Class speciesToReproduce = this.getClass();
+        Integer x = this.currentPosition.get("X");
+        Integer y = this.currentPosition.get("Y");
         if (possiblePartner.getClass().equals(speciesToReproduce)){
 
             try {
-                speciesToReproduce.getDeclaredConstructor().newInstance();
+                speciesToReproduce.getDeclaredConstructor(Integer.class, Integer.class).newInstance(x, y);
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException |NoSuchMethodException e) {
                 System.out.println(e.getMessage());
             }
