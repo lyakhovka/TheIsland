@@ -36,6 +36,7 @@ public abstract class Animal extends Alive implements Runnable{
     public void move(Map<String, Integer> destinationCoordinates){
         this.currentPosition.put("X", destinationCoordinates.get("X"));
         this.currentPosition.put("Y", destinationCoordinates.get("Y"));
+        this.hp = this.hp*0.3;
 
     }
     public boolean eat(Alive possiblePrey){
