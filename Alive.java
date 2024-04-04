@@ -10,5 +10,6 @@ public abstract class Alive {
  }
 
  abstract void paint();
+ abstract String getName();
 }
 
