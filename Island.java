@@ -15,9 +15,6 @@ public class Island {
         }
         for (int i = 0; i < islandWidth; i++) {
             for (int j = 0; j < islandHeight; j++) {
-                System.out.println();
-                System.out.println();
-                System.out.println("CELL["+i+"]["+j+"]");
                 cells[i][j].reportStatus();
             }
 
