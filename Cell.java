@@ -68,7 +68,7 @@ public class Cell {
         for (Animal animal: animalsInCell){
             animal.paint();
             Thread animalLife = new Thread(animal);
-            System.out.println(animalLife.getName());
+//            System.out.println(animalLife.getName());
             threads.add(animalLife);
             animalLife.start();
         }
