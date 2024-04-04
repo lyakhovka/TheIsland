@@ -42,7 +42,9 @@ public abstract class Animal extends Alive implements Runnable{
     public boolean eat(Alive possiblePrey){
             Animal prey;
             Plant forage;
-            double requiredFoodAmount = this.hp * this.maxFoodAmount;
+            double requiredFoodAmount = (1-this.hp) * this.maxFoodAmount;
+            if (requiredFoodAmount == 0.0) return false;
+
 
             //Check if this animal can eat the possible prey (accordingly to requirements).
             //If no, return false.
