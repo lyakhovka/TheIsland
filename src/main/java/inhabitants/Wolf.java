@@ -1,8 +1,10 @@
+package inhabitants;
+
 import java.util.HashMap;
 
-public class Wolf extends Carnivore{
+public class Wolf extends Carnivore {
     public static final String ICON = "\uD83D\uDC3A";
-    public static final String NAME = "Wolf";
+    public static final String NAME = "inhabitants.Wolf";
 
     public String getName(){return NAME;}
 
@@ -16,7 +18,7 @@ public class Wolf extends Carnivore{
         this.possiblePreys = new HashMap<>();
 //        possiblePreys.put("Horse", 10);
 //        possiblePreys.put("Deer", 15);
-        possiblePreys.put("Rabbit", 60);
+        possiblePreys.put("inhabitants.Rabbit", 60);
 //        possiblePreys.put("Mouse", 80);
 //        possiblePreys.put("Goat", 60);
 //        possiblePreys.put("Sheep", 70);

@@ -1,3 +1,5 @@
+package inhabitants;
+
 import java.util.Map;
 
 public abstract class Alive {
@@ -12,7 +14,7 @@ public abstract class Alive {
   //isCreatureAlive = false;
  }
 
- abstract void paint();
+ public abstract void paint();
  abstract String getName();
 }
 

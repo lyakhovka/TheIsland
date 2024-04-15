@@ -1,6 +1,10 @@
+package inhabitants;
+
+import island.Island;
+
 import java.util.Iterator;
 
-public abstract class Herbivore extends Animal{
+public abstract class Herbivore extends Animal {
     private static final Object lock = new Object();
     @Override
     public void run() {
@@ -21,7 +25,7 @@ public abstract class Herbivore extends Animal{
                 reproduce(Island.cells[x][y].animalsInCell);
                 move(setDestination());
 
-//                Island.cells[x][y].reportStatus();
+//                island.Island.cells[x][y].reportStatus();
 
             }
         }

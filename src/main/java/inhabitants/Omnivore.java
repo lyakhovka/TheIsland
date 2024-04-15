@@ -1,3 +1,7 @@
+package inhabitants;
+
+import island.Island;
+
 import java.util.Iterator;
 
 public abstract class Omnivore extends Animal {
@@ -31,7 +35,7 @@ public abstract class Omnivore extends Animal {
                 reproduce(Island.cells[x][y].animalsInCell);
                 move(setDestination());
 
-//                Island.cells[x][y].reportStatus();
+//                island.Island.cells[x][y].reportStatus();
 
             }
         }

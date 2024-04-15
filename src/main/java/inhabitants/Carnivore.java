@@ -1,5 +1,8 @@
+package inhabitants;
+
+import island.Island;
+
 import java.util.Iterator;
-import java.util.List;
 
 public abstract class Carnivore extends Animal {
     private static final Object lock = new Object();
@@ -22,7 +25,7 @@ public abstract class Carnivore extends Animal {
                     reproduce(Island.cells[x][y].animalsInCell);
                     move(setDestination());
 
-//                    Island.cells[x][y].reportStatus();
+//                    island.Island.cells[x][y].reportStatus();
                 }
        }
     }

@@ -1,3 +1,5 @@
+package island;
+
 public class Island {
     public static Cell[][] cells;
     private int islandWidth;
