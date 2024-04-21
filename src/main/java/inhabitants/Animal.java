@@ -1,5 +1,7 @@
 package inhabitants;
 
+import island.Island;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
@@ -30,16 +32,16 @@ public abstract class Animal extends Alive implements Runnable {
 
         Map<String, Integer> destinationCell = new HashMap<>();
         if (maxSpeed > 0) {
-            int islandWidth = 2; //temporary hardcoded
-            int islandHeight = 2; //temporary hardcoded
+            int maxAvailableDistanceWidth = Island.getIslandWidth()-1;
+            int maxAvailableDistanceHeight = Island.getIslandHeight()-1;
             Random random = new Random();
 
             int x = random.nextInt(maxSpeed);
-            if (x > islandWidth) x = islandWidth;
+            if (x >= maxAvailableDistanceWidth) x = maxAvailableDistanceWidth;
             destinationCell.put("X", x);
 
             int y = random.nextInt(maxSpeed);
-            if (y > islandHeight) y = islandHeight;
+            if (y >= maxAvailableDistanceHeight) y = maxAvailableDistanceHeight;
             destinationCell.put("Y", y);
         }
         else destinationCell = currentPosition;

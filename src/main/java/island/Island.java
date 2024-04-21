@@ -2,8 +2,16 @@ package island;
 
 public class Island {
     public static Cell[][] cells;
-    private int islandWidth;
-    private int islandHeight;
+    private static int islandWidth;
+    private static int islandHeight;
+
+    public static int getIslandWidth() {
+        return islandWidth;
+    }
+
+    public static int getIslandHeight() {
+        return islandHeight;
+    }
 
     public Island(int width, int height) {
         islandWidth = width;
@@ -35,8 +43,13 @@ public class Island {
     }
 
     public static void main(String[] args) {
-        //the island size is temporary hardcoded
-        Island theIsland = new Island(3, 3);
+//        int islandWidth = Integer.parseInt(args[0]);
+//        int islandHeight = Integer.parseInt(args[1]);
+
+        int islandWidth = 3;
+        int islandHeight = 3;
+
+        Island theIsland = new Island(islandWidth, islandHeight);
         int roundNumber = 1;
 
         System.out.println("\n\n******************************************************************* LIFE BEGUN **********************************************************");
