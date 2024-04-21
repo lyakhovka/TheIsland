@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Bear extends Carnivore {
     public static final String ICON = "\uD83D\uDC3B";
-    public static final String NAME = "inhabitants.Bear";
+    public static final String NAME = "Bear";
 
     public String getName() {
         return NAME;
@@ -25,7 +25,7 @@ public class Bear extends Carnivore {
         // possiblePreys.put("Boar", 80);
         // possiblePreys.put("Horse", 40);
         // possiblePreys.put("Deer", 80);
-        possiblePreys.put("inhabitants.Rabbit", 80);
+        possiblePreys.put("Rabbit", 80);
 //    possiblePreys.put("Mouse", 90);
 //    possiblePreys.put("Goat", 70);
 //    possiblePreys.put("Sheep", 70);

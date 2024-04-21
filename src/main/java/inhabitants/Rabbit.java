@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Rabbit extends Herbivore {
     public static final String ICON = "\uD83D\uDC07";
-    public static final String NAME = "inhabitants.Rabbit";
+    public static final String NAME = "Rabbit";
 
     public String getName() {
         return NAME;
@@ -22,7 +22,7 @@ public class Rabbit extends Herbivore {
         this.maxFoodAmount = 0.45;
         this.maxSpeed = 2;
         this.possiblePreys = new HashMap<>();
-        possiblePreys.put("inhabitants.Plant", 100);
+        possiblePreys.put("Plant", 100);
     }
 
     public void paint() {
