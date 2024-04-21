@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Random;
 
 public abstract class Animal extends Alive implements Runnable {
-    // public int weight;
     public String ICON;
     public String Name;
     public int maxSpeed;
@@ -60,38 +59,40 @@ public abstract class Animal extends Alive implements Runnable {
     public boolean eat(Alive possiblePrey) {
         Animal prey;
         Plant forage;
+        int eatProbability = new Random().nextInt(100);
         double requiredFoodAmount = (1.000d - this.hp) * this.maxFoodAmount;
         if (requiredFoodAmount == 0.000d) return false;
 
-        //TODO add probability of eating depending on the exact prey.
         if (!this.possiblePreys.keySet().contains(possiblePrey.getName())) {
             return false;
         } else {
-            if (possiblePrey instanceof Animal) {
-                prey = (Animal) possiblePrey;
-                if (prey.weight > requiredFoodAmount) {
-                    this.hp = 1.000d;
-                } else {
-                    this.hp += prey.weight / this.maxFoodAmount;
+            if (eatProbability <= this.possiblePreys.get(possiblePrey.getName())) {
+                if (possiblePrey instanceof Animal) {
+                    prey = (Animal) possiblePrey;
+                    if (prey.weight > requiredFoodAmount) {
+                        this.hp = 1.000d;
+                    } else {
+                        this.hp += prey.weight / this.maxFoodAmount;
+                    }
+                    System.out.println("EATEN: " + ((Animal) possiblePrey).getIcon());
+                    ((Animal) possiblePrey).die();
+
                 }
-                System.out.println("EATEN: " + ((Animal) possiblePrey).getIcon());
-                ((Animal) possiblePrey).die();
 
-            }
+                if (possiblePrey instanceof Plant) {
 
-            if (possiblePrey instanceof Plant) {
+                    forage = (Plant) possiblePrey;
+                    if (forage.weight > requiredFoodAmount) {
+                        this.hp = 1;
+                    } else {
+                        this.hp += forage.weight / this.maxFoodAmount;
+                    }
+                    System.out.println("EATEN: " + ((Plant) possiblePrey).getIcon());
+                    ((Plant) possiblePrey).die();
 
-                forage = (Plant) possiblePrey;
-                if (forage.weight > requiredFoodAmount) {
-                    this.hp = 1;
-                } else {
-                    this.hp += forage.weight / this.maxFoodAmount;
                 }
-                System.out.println("EATEN: " + ((Plant) possiblePrey).getIcon());
-                ((Plant) possiblePrey).die();
-
             }
-        }
+       }
         return true;
     }
 
