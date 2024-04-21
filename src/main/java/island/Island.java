@@ -44,8 +44,8 @@ public class Island {
             System.out.println("******************************************************************* ROUND " + roundNumber + " *************************************************************");
             for (int i = 0; i < theIsland.islandWidth; i++) {
                 for (int j = 0; j < theIsland.islandHeight; j++) {
-                    cells[i][j].reportStatus();
                     cells[i][j].lifeRound();
+                    cells[i][j].reportStatus();
                 }
             }
             roundNumber++;

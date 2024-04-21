@@ -27,18 +27,22 @@ public abstract class Animal extends Alive implements Runnable {
     }
 
     public Map<String, Integer> setDestination() {
+
         Map<String, Integer> destinationCell = new HashMap<>();
-        int islandWidth = 1; //temporary hardcoded
-        int islandHeight = 1; //temporary hardcoded
-        Random random = new Random();
+        if (maxSpeed > 0) {
+            int islandWidth = 2; //temporary hardcoded
+            int islandHeight = 2; //temporary hardcoded
+            Random random = new Random();
 
-        int x = random.nextInt(maxSpeed);
-        if (x > islandWidth) x = islandWidth;
-        destinationCell.put("X", x);
+            int x = random.nextInt(maxSpeed);
+            if (x > islandWidth) x = islandWidth;
+            destinationCell.put("X", x);
 
-        int y = random.nextInt(maxSpeed);
-        if (y > islandHeight) y = islandHeight;
-        destinationCell.put("Y", y);
+            int y = random.nextInt(maxSpeed);
+            if (y > islandHeight) y = islandHeight;
+            destinationCell.put("Y", y);
+        }
+        else destinationCell = currentPosition;
 
         return destinationCell;
     }

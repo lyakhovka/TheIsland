@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public abstract class Herbivore extends Animal {
     @Override
-    public synchronized void run() {
+    public void run() {
         int x = currentPosition.get("X");
         int y = currentPosition.get("Y");
         synchronized (Island.cells[x][y].plantsInCell) {

@@ -22,16 +22,16 @@ public class Bear extends Carnivore {
         this.maxFoodAmount = 80;
         this.maxSpeed = 2;
         this.possiblePreys = new HashMap<>();
-        // possiblePreys.put("Boar", 80);
-        // possiblePreys.put("Horse", 40);
-        // possiblePreys.put("Deer", 80);
+        this.possiblePreys.put("Boar", 80);
+        possiblePreys.put("Horse", 40);
+        possiblePreys.put("Deer", 80);
         possiblePreys.put("Rabbit", 80);
-//    possiblePreys.put("Mouse", 90);
-//    possiblePreys.put("Goat", 70);
-//    possiblePreys.put("Sheep", 70);
-//    possiblePreys.put("Hog", 50);
-//    possiblePreys.put("Buffalo", 20);
-//    possiblePreys.put("Duck", 10);
+        possiblePreys.put("Mouse", 90);
+        possiblePreys.put("Goat", 70);
+        possiblePreys.put("Sheep", 70);
+        possiblePreys.put("Hog", 50);
+        possiblePreys.put("Buffalo", 20);
+        possiblePreys.put("Duck", 10);
 
 
     }

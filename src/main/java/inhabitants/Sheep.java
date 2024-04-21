@@ -2,9 +2,9 @@ package inhabitants;
 
 import java.util.HashMap;
 
-public class Rabbit extends Herbivore {
-    public static final String ICON = "\uD83D\uDC07";
-    public static final String NAME = "Rabbit";
+public class Sheep extends Herbivore{
+    public static final String ICON = "\uD83D\uDC11";
+    public static final String NAME = "Sheep";
 
     public String getName() {
         return NAME;
@@ -14,12 +14,12 @@ public class Rabbit extends Herbivore {
         return ICON;
     }
 
-    public Rabbit(Integer x, Integer y) {
+    public Sheep(Integer x, Integer y) {
         super();
         this.currentPosition.put("X", x);
         this.currentPosition.put("Y", y);
-        this.weight = 2;
-        this.maxFoodAmount = 0.45;
+        this.weight = 70;
+        this.maxFoodAmount = 15;
         this.maxSpeed = 2;
         this.possiblePreys = new HashMap<>();
         this.possiblePreys.put("Plant", 100);
@@ -28,6 +28,4 @@ public class Rabbit extends Herbivore {
     public void paint() {
         System.out.print(ICON);
     }
-
-
 }

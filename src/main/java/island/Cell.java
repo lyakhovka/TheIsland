@@ -13,20 +13,21 @@ public class Cell {
     public int x;
     public int y;
 
-    //   private final int SPECIES_TOTAL_AMOUNT = 16;
-
     private Map<String, Integer> maxAliveAmountInCell = getMaxAliveAmountInCell();
 
     private Map<String, Integer> getMaxAliveAmountInCell() {
+
         Map<String, Integer> maxAmount = new HashMap<>();
-        maxAmount.put("inhabitants.Wolf", 3);
+
+        /* Original amounts from the task*/
+//        maxAmount.put("Wolf", 30);
 //        maxAmount.put("Boa", 30);
 //        maxAmount.put("Fox", 30);
-        maxAmount.put("inhabitants.Bear", 5);
+//        maxAmount.put("Bear", 5);
 //        maxAmount.put("Eagle", 20);
 //        maxAmount.put("Horse", 20);
 //        maxAmount.put("Deer", 20);
-        maxAmount.put("inhabitants.Rabbit", 7);
+//        maxAmount.put("Rabbit", 150);
 //        maxAmount.put("Mouse", 500);
 //        maxAmount.put("Goat", 140);
 //        maxAmount.put("Sheep", 140);
@@ -34,7 +35,26 @@ public class Cell {
 //        maxAmount.put("Buffalo", 10);
 //        maxAmount.put("Duck", 200);
 //        maxAmount.put("Caterpillar", 1000);
-        maxAmount.put("inhabitants.Plant", 10);
+//        maxAmount.put("Plant", 200);
+
+
+        /*Test smaller amounts*/
+        maxAmount.put("Wolf", 3);
+        maxAmount.put("Boa", 3);
+        maxAmount.put("Fox", 5);
+        maxAmount.put("Bear", 3);
+        maxAmount.put("Eagle", 2);
+        maxAmount.put("Horse", 2);
+        maxAmount.put("Deer", 2);
+        maxAmount.put("Rabbit", 7);
+        maxAmount.put("Mouse", 9);
+        maxAmount.put("Goat", 4);
+        maxAmount.put("Sheep", 4);
+        maxAmount.put("Hog", 5);
+        maxAmount.put("Buffalo", 2);
+        maxAmount.put("Duck", 9);
+        maxAmount.put("Caterpillar", 9);
+        maxAmount.put("Plant", 20);
 
         return maxAmount;
     }
@@ -48,7 +68,7 @@ public class Cell {
             int aliveAmount = random.nextInt(maxAliveAmountInCell.get(aliveName));
             for (int i = 0; i < aliveAmount; i++) {
                 try {
-                    Object newAlive = Class.forName(aliveName).getDeclaredConstructor(Integer.class, Integer.class).newInstance(x, y);
+                    Object newAlive = Class.forName("inhabitants." + aliveName).getDeclaredConstructor(Integer.class, Integer.class).newInstance(x, y);
                     if (newAlive instanceof Animal) {
                         animalsInCell.add((Animal) newAlive);
                     } else if (newAlive instanceof Plant) {
@@ -87,7 +107,7 @@ public class Cell {
         while (iterator.hasNext()) {
             Animal animal = iterator.next();
             if (animal.hp < 0.01) {
-                System.out.println("DIED FROM STARVATION: " + animal.getIcon());
+                System.out.println("\nDIED FROM STARVATION: " + animal.getIcon());
                 iterator.remove();
             }
         }
