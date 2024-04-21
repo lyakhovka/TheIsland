@@ -5,8 +5,16 @@ import java.util.HashMap;
 public class Rabbit extends Herbivore {
     public static final String ICON = "\uD83D\uDC07";
     public static final String NAME = "inhabitants.Rabbit";
-    public String getName(){return NAME;}
-    public Rabbit(Integer x, Integer y){
+
+    public String getName() {
+        return NAME;
+    }
+
+    public String getIcon() {
+        return ICON;
+    }
+
+    public Rabbit(Integer x, Integer y) {
         super();
         this.currentPosition.put("X", x);
         this.currentPosition.put("Y", y);
@@ -17,7 +25,7 @@ public class Rabbit extends Herbivore {
         possiblePreys.put("inhabitants.Plant", 100);
     }
 
-    public void paint(){
+    public void paint() {
         System.out.print(ICON);
     }
 

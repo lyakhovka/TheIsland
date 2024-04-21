@@ -12,7 +12,9 @@ public abstract class Omnivore extends Animal {
             int y = currentPosition.get("Y");
             synchronized (Island.cells[x][y].plantsInCell) {
                 for (Plant plant : Island.cells[x][y].plantsInCell) {
-                    eat(plant);
+                    synchronized (plant) {
+                        eat(plant);
+                    }
                 }
                 Iterator<Plant> plantsIterator = Island.cells[x][y].plantsInCell.iterator();
                 while (plantsIterator.hasNext()) {
@@ -23,7 +25,9 @@ public abstract class Omnivore extends Animal {
                 }
 
                 for (Animal animal : Island.cells[x][y].animalsInCell) {
-                    eat(animal);
+                    synchronized (animal) {
+                        eat(animal);
+                    }
                 }
                 Iterator<Animal> animalsIterator = Island.cells[x][y].animalsInCell.iterator();
                 while (animalsIterator.hasNext()) {
@@ -34,9 +38,6 @@ public abstract class Omnivore extends Animal {
                 }
                 reproduce(Island.cells[x][y].animalsInCell);
                 move(setDestination());
-
-//                island.Island.cells[x][y].reportStatus();
-
             }
         }
     }

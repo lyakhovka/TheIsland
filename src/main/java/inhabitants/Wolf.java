@@ -6,9 +6,15 @@ public class Wolf extends Carnivore {
     public static final String ICON = "\uD83D\uDC3A";
     public static final String NAME = "inhabitants.Wolf";
 
-    public String getName(){return NAME;}
+    public String getName() {
+        return NAME;
+    }
 
-    public Wolf(Integer x, Integer y){
+    public String getIcon() {
+        return ICON;
+    }
+
+    public Wolf(Integer x, Integer y) {
         super();
         this.currentPosition.put("X", x);
         this.currentPosition.put("Y", y);
@@ -27,7 +33,7 @@ public class Wolf extends Carnivore {
 //        possiblePreys.put("Duck", 40);
     }
 
-    public void paint(){
+    public void paint() {
         System.out.print(ICON);
     }
 }

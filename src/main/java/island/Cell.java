@@ -82,29 +82,32 @@ public class Cell {
                 e.printStackTrace();
             }
         }
+
+        Iterator<Animal> iterator = animalsInCell.iterator();
+        while (iterator.hasNext()) {
+            Animal animal = iterator.next();
+            if (animal.hp < 0.01) {
+                System.out.println("DIED FROM STARVATION: " + animal.getIcon());
+                iterator.remove();
+            }
+        }
     }
 
     public void reportStatus() {
+
         System.out.println();
         System.out.println();
         System.out.println("CELL[" + x + "][" + y + "]");
-        System.out.println("ANIMALS_TOTAL_AMOUNT: " + animalsInCell.size());
+        System.out.println("TOTAL CELL ANIMAL COUNT: " + animalsInCell.size());
 
         for (int i = 0; i < animalsInCell.size(); i++) {
             animalsInCell.get(i).paint();
-            // System.out.print("hp: " + animalsInCell.get(i).hp + " weight: " + animalsInCell.get(i).weight + " speed: " + animalsInCell.get(i).maxSpeed + " foodAmount: " + animalsInCell.get(i).maxFoodAmount);
-//            System.out.println("Possible preys: ");
-//            for (String prey : animalsInCell.get(i).possiblePreys.keySet()) {
-//                System.out.println("prey: " + prey + " probability: " + animalsInCell.get(i).possiblePreys.get(prey));
-//            }
         }
-        System.out.println();
-        System.out.println("PLANTS_TOTAL_AMOUNT: " + plantsInCell.size());
+        System.out.println("\nTOTAL CELL PLANTS COUNT: " + plantsInCell.size());
         for (int i = 0; i < plantsInCell.size(); i++) {
             plantsInCell.get(i).paint();
-//            System.out.println();
-//            System.out.println("weight: " + plantsInCell.get(i).weight);
         }
+
     }
 
 }
