@@ -1,4 +1,4 @@
-package ranner;
+package runner;
 
 import island.Island;
 
