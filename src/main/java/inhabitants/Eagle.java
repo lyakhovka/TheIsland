@@ -3,15 +3,15 @@ package inhabitants;
 import java.util.HashMap;
 
 public class Eagle extends Carnivore {
-    public static final String ICON = "\uD83E\uDD85";
-    public static final String NAME = "Eagle";
+    public static final String icon = "\uD83E\uDD85";
+    public static final String name = "Eagle";
 
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public String getIcon() {
-        return ICON;
+        return icon;
     }
 
     public Eagle(Integer x, Integer y) {
@@ -23,14 +23,14 @@ public class Eagle extends Carnivore {
         this.maxSpeed = 3;
         this.possiblePreys = new HashMap<>();
         this.possiblePreys.put("Fox", 10);
-        possiblePreys.put("Rabbit", 90);
-        possiblePreys.put("Mouse", 90);
-        possiblePreys.put("Duck", 80);
+        this.possiblePreys.put("Rabbit", 90);
+        this.possiblePreys.put("Mouse", 90);
+        this.possiblePreys.put("Duck", 80);
 
 
     }
 
     public void paint() {
-        System.out.print(ICON);
+        System.out.print(icon);
     }
 }

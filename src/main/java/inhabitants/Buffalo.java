@@ -3,15 +3,15 @@ package inhabitants;
 import java.util.HashMap;
 
 public class Buffalo extends Herbivore{
-    public static final String ICON = "\uD83D\uDC03";
-    public static final String NAME = "Buffalo";
+    public static final String icon = "\uD83D\uDC03";
+    public static final String name = "Buffalo";
 
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public String getIcon() {
-        return ICON;
+        return icon;
     }
 
     public Buffalo(Integer x, Integer y) {
@@ -26,6 +26,6 @@ public class Buffalo extends Herbivore{
     }
 
     public void paint() {
-        System.out.print(ICON);
+        System.out.print(icon);
     }
 }

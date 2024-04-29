@@ -9,18 +9,18 @@ import java.util.Map;
 import java.util.Random;
 
 public abstract class Animal extends Alive implements Runnable {
-    public String ICON;
-    public String Name;
+    public String icon;
+    public String name;
     public int maxSpeed;
     public double maxFoodAmount;
     public Map<String, Integer> possiblePreys;
 
     public String getIcon() {
-        return ICON;
+        return icon;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public Animal() {
@@ -50,9 +50,14 @@ public abstract class Animal extends Alive implements Runnable {
     }
 
     public void move(Map<String, Integer> destinationCoordinates) {
-        this.currentPosition.put("X", destinationCoordinates.get("X"));
-        this.currentPosition.put("Y", destinationCoordinates.get("Y"));
-        this.hp = this.hp * 0.300d;
+        if (destinationCoordinates.equals(currentPosition)){
+            this.hp = this.hp*0.7;
+        }
+        else {
+            this.currentPosition.put("X", destinationCoordinates.get("X"));
+            this.currentPosition.put("Y", destinationCoordinates.get("Y"));
+            this.hp = this.hp * 0.300d;
+        }
         System.out.println("\nMOVED: " + this.getIcon() + " (hp = " + this.hp + ")");
 
     }

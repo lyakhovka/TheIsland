@@ -3,15 +3,15 @@ package inhabitants;
 import java.util.HashMap;
 
 public class Hog extends Omnivore{
-    public static final String ICON = "\uD83D\uDC37";
-    public static final String NAME = "Hog";
+    public static final String icon = "\uD83D\uDC37";
+    public static final String name = "Hog";
 
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public String getIcon() {
-        return ICON;
+        return icon;
     }
 
     public Hog(Integer x, Integer y) {
@@ -28,6 +28,6 @@ public class Hog extends Omnivore{
     }
 
     public void paint() {
-        System.out.print(ICON);
+        System.out.print(icon);
     }
 }
